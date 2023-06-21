@@ -23,14 +23,10 @@ public class Pessoa extends GenericModel {
     public Pessoa(Integer id, String nome, String cpf, Integer tipoPessoa, String cnpj ) throws Exception {
         this(id, nome, cpf, tipoPessoa);
 
-        if(!(tipoPessoa == 2)){
-            throw new Exception("Somente pessoa juridica tem CNPJ");
-        }
 
         this.cnpj = cnpj;
 
     }
-
 
     public String getNome() {
         return nome;

@@ -4,7 +4,7 @@ import br.com.frota.DAO.TipoPessoaDAO;
 
 public class Pessoa extends GenericModel {
 
-    private TipoPessoaDAO tipoPessoaDAO = new TipoPessoaDAO();
+    static private TipoPessoaDAO tipoPessoaDAO = new TipoPessoaDAO();
     private String nome;
     private String cpf;
 
@@ -22,7 +22,6 @@ public class Pessoa extends GenericModel {
 
     public Pessoa(Integer id, String nome, String cpf, Integer tipoPessoa, String cnpj ) throws Exception {
         this(id, nome, cpf, tipoPessoa);
-
 
         this.cnpj = cnpj;
 
@@ -47,10 +46,10 @@ public class Pessoa extends GenericModel {
     @Override
     public String toString() {
         return "Pessoa{ \n" +
-                "id=" + this.getId() +
-                "nome = " + getNome() + "\' \n" +
-                "cpf = " + getCpf() + "\' \n"  +
-                "tipo_pessoa = " + tipoPessoaDAO.selectTipoPessoa(tipoPessoa) + "\' \n" +
+                "id= '" + this.getId() + "\' \n" +
+                "nome = '" + getNome() + "\' \n" +
+                "cpf = '" + getCpf() + "\' \n"  +
+                "tipo_pessoa =  '" + tipoPessoaDAO.selectTipoPessoa(tipoPessoa) + "\' \n" +
                 '}';
     }
 }

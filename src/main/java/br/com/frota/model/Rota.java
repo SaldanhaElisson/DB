@@ -1,6 +1,5 @@
 package br.com.frota.model;
 
-import br.com.frota.DAO.TipoPessoaDAO;
 
 public class Rota extends GenericModel{
 

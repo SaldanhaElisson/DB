@@ -14,6 +14,23 @@ public class PessoaDAO extends  ConexaoDB{
     private static final String DELETE_PESSOA_SQL = "DELETE FROM pessoa WHERE id = ?;";
     private static final String UPDATE_PESSOA_SQL = "UPDATE pessoa SET nome = ?, cpf = ?, cnpj = ?, tipo_pessoa_id = ? WHERE id = ?;";
 
+    private static final String TOTAL = "SELECT count(1) FROM pessoa;";
+
+    public Integer count() {
+        Integer count = 0;
+        try (PreparedStatement preparedStatement = prepararSQL(TOTAL)) {
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getInt("count");
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return count;
+    }
     public void insertPessoa(Pessoa entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_PESSOA_SQL)) {
             System.out.println(entidade.getCpf());

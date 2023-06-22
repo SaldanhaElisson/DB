@@ -1,7 +1,5 @@
 package br.com.frota.DAO;
-
 import br.com.frota.model.TipoPessoa;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +14,23 @@ public class TipoPessoaDAO extends ConexaoDB {
     private static final String DELETE_TIPO_PESSOA_SQL = "DELETE FROM tipo_pessoa WHERE id = ?;";
     private static final String UPDATE_TIPO_PESSOA_SQL = "UPDATE tipo_pessoa SET descricao = ? WHERE id = ?;";
 
+    private static final String TOTAL = "SELECT count(1) FROM tipo_pessoa;";
+
+    public Integer count() {
+        Integer count = 0;
+        try (PreparedStatement preparedStatement = prepararSQL(TOTAL)) {
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getInt("count");
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return count;
+    }
 
     public void insertTipoPessoa(TipoPessoa entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_PESSOA_SQL)) {

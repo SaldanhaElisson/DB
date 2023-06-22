@@ -1,9 +1,5 @@
 package br.com.frota.DAO;
-
 import br.com.frota.model.Funcionario;
-import br.com.frota.model.Pessoa;
-import br.com.frota.model.TipoPessoa;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +12,24 @@ public class FuncionarioDAO extends ConexaoDB{
     private static final String SELECT_ALL_FUNCIONARIO = "SELECT * FROM funcionario;";
     private static final String DELETE_FUNCIONARIO_SQL = "DELETE FROM funcionario WHERE id = ?;";
     private static final String UPDATE_FUNCIONARIO_SQL = "UPDATE funcionario SET codigo_funcional = ?, pessoa_id = ? WHERE id = ?;";
+
+    private static final String TOTAL = "SELECT count(1) FROM funcionario;";
+
+    public Integer count() {
+        Integer count = 0;
+        try (PreparedStatement preparedStatement = prepararSQL(TOTAL)) {
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getInt("count");
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return count;
+    }
 
     public void insertFuncionarioSQL(Funcionario entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_FUNCIONARIO_SQL)) {

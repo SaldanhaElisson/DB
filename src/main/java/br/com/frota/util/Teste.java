@@ -26,8 +26,10 @@ public class Teste {
 //        Pessoa pessoa1 = new Pessoa(1, "elisson", "544556464", 1);
 //        pessoa.insertPessoa(pessoa1);
 
-        Funcionario funcionario1 = new Funcionario(1, "23123123123", 1);
-        funcionario.insertFuncionarioSQL(funcionario1);
+//        Funcionario funcionario1 = new Funcionario(1, "23123123123", 1);
+//        funcionario.insertFuncionarioSQL(funcionario1);
+
+        funcionario.selectAllFuncionario().forEach(System.out::println);
 
     }
 }

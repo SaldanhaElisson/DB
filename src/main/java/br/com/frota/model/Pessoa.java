@@ -45,11 +45,11 @@ public class Pessoa extends GenericModel {
 
     @Override
     public String toString() {
-        return "Pessoa{ \n" +
-                "id= '" + this.getId() + "\' \n" +
-                "nome = '" + getNome() + "\' \n" +
-                "cpf = '" + getCpf() + "\' \n"  +
-                "tipo_pessoa =  '" + tipoPessoaDAO.selectTipoPessoa(tipoPessoa) + "\' \n" +
-                '}';
+        return "Pessoa { \n" +
+                    "\t id= '" + this.getId() + "\' \n" +
+                    "\t nome = '" + getNome() + "\' \n" +
+                    "\t cpf = '" + getCpf() + "\' \n"  +
+                    "\t tipo_pessoa =  " + tipoPessoaDAO.selectTipoPessoa(tipoPessoa) + "\n" +
+                "\t }";
     }
 }

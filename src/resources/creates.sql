@@ -34,8 +34,8 @@ CREATE TABLE pessoa(
 
 CREATE TABLE funcionario(
     id SERIAL PRIMARY KEY,
-    codigo_funcional VARCHAR(45) not null,
-    pessoa_id INT REFERENCES pessoa(id)
+    codigo_funcional VARCHAR(45) not null UNIQUE ,
+    pessoa_id INT REFERENCES pessoa(id) UNIQUE
 );
 
 CREATE TABLE cliente (

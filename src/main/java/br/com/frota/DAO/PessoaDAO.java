@@ -16,6 +16,8 @@ public class PessoaDAO extends  ConexaoDB{
 
     private static final String TOTAL = "SELECT count(1) FROM pessoa;";
 
+    private static final TipoPessoaDAO tipoPessoaDao = new TipoPessoaDAO();
+
     public Integer count() {
         Integer count = 0;
         try (PreparedStatement preparedStatement = prepararSQL(TOTAL)) {
@@ -36,7 +38,7 @@ public class PessoaDAO extends  ConexaoDB{
             System.out.println(entidade.getCpf());
             preparedStatement.setString(1, entidade.getNome());
             preparedStatement.setString(2, entidade.getCpf());
-            preparedStatement.setInt(3, entidade.getTipoPessoa());
+            preparedStatement.setInt(3, entidade.getIdTipoPessoa());
 
             if (entidade.getCnpj() == null || entidade.getCnpj().isEmpty()) {
                 preparedStatement.setNull(4, 0);
@@ -65,7 +67,7 @@ public class PessoaDAO extends  ConexaoDB{
                 String cpf = rs.getString("cpf");
                 Integer tipo_pessoa_id = rs.getInt("tipo_pessoa_id");
                 String cnpj = rs.getString("cnpj");
-                entidade = new Pessoa(id, nome, cpf, tipo_pessoa_id, cnpj);
+                entidade = new Pessoa(id, nome, cpf, tipoPessoaDao.selectTipoPessoa(tipo_pessoa_id), cnpj);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -86,7 +88,7 @@ public class PessoaDAO extends  ConexaoDB{
                 String cpf = rs.getString("cpf");
                 Integer tipo_pessoa_id = rs.getInt("tipo_pessoa_id");
                 String cnpj = rs.getString("cnpj");
-                entidades.add(new Pessoa(id, nome, cpf, tipo_pessoa_id, cnpj));
+                entidades.add(new Pessoa(id, nome, cpf, tipoPessoaDao.selectTipoPessoa(tipo_pessoa_id), cnpj));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -109,7 +111,7 @@ public class PessoaDAO extends  ConexaoDB{
         try (PreparedStatement statement = prepararSQL(UPDATE_PESSOA_SQL)) {
             statement.setString(1, entidade.getNome());
             statement.setString(2, entidade.getCpf());
-            statement.setInt(3, entidade.getTipoPessoa());
+            statement.setInt(3, entidade.getIdTipoPessoa());
             statement.setInt(4, entidade.getId());
 
             return statement.executeUpdate() > 0;

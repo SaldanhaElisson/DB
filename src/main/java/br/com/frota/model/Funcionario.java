@@ -9,7 +9,6 @@ public class Funcionario extends GenericModel{
 
    private Integer pessoaId;
 
-
     public Funcionario(Integer id, String codigoFuncional, Integer pessoaId) {
 
         this.codigoFuncional = codigoFuncional;

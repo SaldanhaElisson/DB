@@ -1,6 +1,5 @@
-package br.com.frota.DAO;
-import br.com.frota.model.Pessoa;
-import br.com.frota.model.TipoPessoa;
+package br.com.conta.DAO;
+import br.com.conta.model.Pessoa;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

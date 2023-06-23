@@ -1,7 +1,5 @@
-package br.com.frota.util;
-import java.sql.Timestamp;
-import br.com.frota.DAO.*;
-import br.com.frota.model.*;
+package br.com.conta.util;
+import br.com.conta.DAO.*;
 
 public class Teste {
     static TipoPessoaDAO tipo_pessoaDAO = new TipoPessoaDAO();

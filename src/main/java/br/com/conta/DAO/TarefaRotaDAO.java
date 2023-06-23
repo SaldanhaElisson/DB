@@ -1,7 +1,6 @@
-package br.com.frota.DAO;
+package br.com.conta.DAO;
 
-import br.com.frota.model.TarefaRota;
-import br.com.frota.model.TipoPessoa;
+import br.com.conta.model.TarefaRota;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,7 +35,7 @@ public class TarefaRotaDAO extends ConexaoDB{
         return count;
     }
 
-    public void insertTarefaRota(br.com.frota.model.TarefaRota entidade) {
+    public void insertTarefaRota(br.com.conta.model.TarefaRota entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_TAREFA_ROTA_SQL)) {
             preparedStatement.setString(1, entidade.getObervacao());
             preparedStatement.setTimestamp(2, entidade.getData_inicio());

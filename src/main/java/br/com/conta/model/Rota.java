@@ -1,4 +1,4 @@
-package br.com.frota.model;
+package br.com.conta.model;
 
 
 public class Rota extends GenericModel{

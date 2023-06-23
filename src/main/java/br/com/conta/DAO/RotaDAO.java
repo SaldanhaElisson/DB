@@ -1,5 +1,5 @@
-package br.com.frota.DAO;
-import br.com.frota.model.Rota;
+package br.com.conta.DAO;
+import br.com.conta.model.Rota;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

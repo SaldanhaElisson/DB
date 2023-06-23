@@ -1,5 +1,5 @@
-package br.com.frota.model;
-import br.com.frota.DAO.RotaDAO;
+package br.com.conta.model;
+import br.com.conta.DAO.RotaDAO;
 import java.sql.Timestamp;
 public class TarefaRota extends  GenericModel {
     private String obervacao;

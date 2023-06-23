@@ -1,6 +1,6 @@
-package br.com.frota.model;
+package br.com.conta.model;
 
-import br.com.frota.DAO.TipoPessoaDAO;
+import br.com.conta.DAO.TipoPessoaDAO;
 
 public class Pessoa extends GenericModel {
 

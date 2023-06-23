@@ -1,8 +1,7 @@
-package br.com.frota.DAO;
+package br.com.conta.DAO;
 
-import br.com.frota.model.Cliente;
-import br.com.frota.model.Funcionario;
-import br.com.frota.model.Pessoa;
+import br.com.conta.model.Cliente;
+import br.com.conta.model.Pessoa;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -105,7 +104,6 @@ public class ClienteDAO extends PessoaDAO {
             throw new RuntimeException(e);
         }
     }
-
 
     public boolean updateCliente(Cliente entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_CLIENTE_SQL)) {

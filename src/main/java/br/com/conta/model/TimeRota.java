@@ -1,7 +1,7 @@
-package br.com.frota.model;
+package br.com.conta.model;
 
-import br.com.frota.DAO.FuncionarioDAO;
-import br.com.frota.DAO.TarefaRotaDAO;
+import br.com.conta.DAO.FuncionarioDAO;
+import br.com.conta.DAO.TarefaRotaDAO;
 
 public class TimeRota extends GenericModel{
 

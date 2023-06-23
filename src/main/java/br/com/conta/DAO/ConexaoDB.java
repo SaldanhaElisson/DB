@@ -1,4 +1,4 @@
-package br.com.frota.DAO;
+package br.com.conta.DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

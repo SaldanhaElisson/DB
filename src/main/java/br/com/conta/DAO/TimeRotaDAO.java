@@ -1,14 +1,12 @@
-package br.com.frota.DAO;
+package br.com.conta.DAO;
 
 
 
-import br.com.frota.model.Funcionario;
-import br.com.frota.model.TimeRota;
+import br.com.conta.model.TimeRota;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 

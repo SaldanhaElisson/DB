@@ -1,6 +1,6 @@
-package br.com.frota.model;
+package br.com.conta.model;
 
-import br.com.frota.DAO.PessoaDAO;
+import br.com.conta.DAO.PessoaDAO;
 
 public class Funcionario extends GenericModel{
 

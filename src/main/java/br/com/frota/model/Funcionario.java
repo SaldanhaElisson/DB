@@ -4,9 +4,7 @@ import br.com.frota.DAO.PessoaDAO;
 
 public class Funcionario extends GenericModel{
 
-
  static  private PessoaDAO pessoaDao = new PessoaDAO();
-   private Integer id;
    private String codigoFuncional;
 
    private Integer pessoaId;
@@ -19,13 +17,10 @@ public class Funcionario extends GenericModel{
         super.setId(id);
     }
 
-    public Integer getId() {
-        return id;
-    }
 
     @Override
     public String toString() {
-        return "Funcionario { \n" +
+        return "funcionario { \n" +
                 "\t id= '" + this.getId() + "\' \n"  +
                 "\t codigo_funcional='" + codigoFuncional + "\' \n" +
                 "\t pessoa = " + pessoaDao.selectPessoaById(pessoaId) + " \n" +

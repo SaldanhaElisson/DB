@@ -1,19 +1,22 @@
 package br.com.frota.model;
 import br.com.frota.DAO.RotaDAO;
+import java.sql.Timestamp;
 public class TarefaRota extends  GenericModel {
     private String obervacao;
-    private String data_inicio;
-    private String data_final;
+    private Timestamp data_inicio;
+    private Timestamp data_final;
 
     private Integer rota_id;
 
     static RotaDAO rota = new RotaDAO();
 
-    public TarefaRota(String obervacao, String data_inicio, String data_final, Integer rota_id) {
+    public TarefaRota(Integer id, String obervacao, Timestamp data_inicio, Timestamp data_final, Integer rota_id) {
         this.obervacao = obervacao;
         this.data_inicio = data_inicio;
         this.data_final = data_final;
         this.rota_id = rota_id;
+
+        super.setId(id);
     }
 
 
@@ -21,11 +24,11 @@ public class TarefaRota extends  GenericModel {
         return obervacao;
     }
 
-    public String getData_inicio() {
+    public Timestamp getData_inicio() {
         return data_inicio;
     }
 
-    public String getData_fim() {
+    public Timestamp getData_fim() {
         return data_final;
     }
 
@@ -35,7 +38,7 @@ public class TarefaRota extends  GenericModel {
 
     @Override
     public String toString() {
-        return "Rota { \n" +
+        return "tarefa_rota { \n" +
                 "\t id='" + this.getId() + "\' \n"  +
                 "\t obersavao=" + obervacao + "\n" +
                 "\t data_inicio= " + data_inicio + "\n" +

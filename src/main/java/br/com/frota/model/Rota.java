@@ -18,7 +18,7 @@ public class Rota extends GenericModel{
 
     @Override
     public String toString() {
-        return "Rota { \n" +
+        return "rota { \n" +
                 "\t id= '" + this.getId() + "\' \n"  +
                 "\t descricao ='" + descricao + "\' \n" +
                 "\t } \n";

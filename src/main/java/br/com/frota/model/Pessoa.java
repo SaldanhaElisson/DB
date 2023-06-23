@@ -45,7 +45,7 @@ public class Pessoa extends GenericModel {
 
     @Override
     public String toString() {
-        return "Pessoa { \n" +
+        return "pessoa { \n" +
                     "\t id= '" + this.getId() + "\' \n" +
                     "\t nome = '" + getNome() + "\' \n" +
                     "\t cpf = '" + getCpf() + "\' \n"  +

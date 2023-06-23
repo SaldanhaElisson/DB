@@ -10,11 +10,9 @@ public class TipoFase extends GenericModel {
         this.descricao = descricao;
         super.setId(id);
     }
-
     public String getDescricao() {
         return descricao;
     }
-
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }

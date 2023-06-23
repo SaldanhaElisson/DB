@@ -11,8 +11,6 @@ public class Tarifa extends GenericModel{
 
     private String lei;
 
-
-
     public Tarifa(String taxa, Classe classeModel, String lei, String data_inicio, String data_fim, String aliquota_ICMS) {
         this.taxa = taxa;
         this.classeModel = classeModel;

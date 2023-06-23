@@ -4,20 +4,15 @@ import br.com.conta.DAO.FuncionarioDAO;
 import br.com.conta.DAO.TarefaRotaDAO;
 
 public class TimeRota extends GenericModel{
-
     private Integer funcionarioId;
     private Integer tarefaRotaId;
-
     static FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
     static TarefaRotaDAO tarefaRotaDAO = new TarefaRotaDAO();
-
-
     public TimeRota(Integer id, Integer funcionario_id, Integer tarefa_rota_id) {
         this.funcionarioId = funcionario_id;
         this.tarefaRotaId = tarefa_rota_id;
         super.setId(id);
     }
-
     public Integer getFuncionarioId() {
         return funcionarioId;
     }

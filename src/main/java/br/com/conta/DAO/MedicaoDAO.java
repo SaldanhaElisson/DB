@@ -7,6 +7,7 @@ import br.com.conta.model.TimeRota;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 public class MedicaoDAO extends  ConexaoDB{
@@ -22,7 +23,7 @@ public class MedicaoDAO extends  ConexaoDB{
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_MEDICAO_SQL)) {
             preparedStatement.setString(1, entidade.getMes());
             preparedStatement.setString(2, entidade.getAno());
-            preparedStatement.setString(3, entidade.getData_medicao());
+            preparedStatement.setTimestamp(3, entidade.getData_medicao());
             preparedStatement.setString(4, entidade.getConsumo());
             preparedStatement.setInt(5, entidade.getMedidorId());
             preparedStatement.setInt(6, entidade.getTimeRotaId());
@@ -43,7 +44,7 @@ public class MedicaoDAO extends  ConexaoDB{
             while (rs.next()) {
                 String mes = rs.getString("mes");
                 String ano = rs.getString("ano");
-                String data_medicao = rs.getString("data_medicao");
+                Timestamp data_medicao = rs.getTimestamp("data_medicao");
                 String consumo = rs.getString("data_consumo");
                 int medidor_id = rs.getInt("medidor_id");
                 Medidor medidor = medidorDAO.selectMedidorById(medidor_id);
@@ -68,7 +69,7 @@ public class MedicaoDAO extends  ConexaoDB{
                 int id = rs.getInt("id");
                 String mes = rs.getString("mes");
                 String ano = rs.getString("ano");
-                String data_medicao = rs.getString("data_medicao");
+                Timestamp data_medicao = rs.getTimestamp("data_medicao");
                 String consumo = rs.getString("data_consumo");
                 int medidor_id = rs.getInt("medidor_id");
                 Medidor medidor = medidorDAO.selectMedidorById(medidor_id);
@@ -97,7 +98,7 @@ public class MedicaoDAO extends  ConexaoDB{
         try (PreparedStatement statement = prepararSQL(UPDATE_MEDICAO_SQL)) {
             statement.setString(1, entidade.getMes());
             statement.setString(2, entidade.getAno());
-            statement.setString(3, entidade.getData_medicao());
+            statement.setTimestamp(3, entidade.getData_medicao());
             statement.setString(4, entidade.getConsumo());
             statement.setInt(5, entidade.getMedidorId());
             statement.setInt(6, entidade.getTimeRotaId());

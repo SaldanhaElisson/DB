@@ -1,14 +1,16 @@
 package br.com.conta.model;
 
+import java.sql.Timestamp;
+
 public class Medicao extends GenericModel {
     private String mes;
     private String ano;
-    private String data_medicao;
+    private Timestamp data_medicao;
     private String consumo;
     private Medidor medidor_id;
     private TimeRota time_rota_id;
 
-    public Medicao(String mes, String ano, String data_medicao, String consumo, Medidor medidor_model, TimeRota time_rota_model) {
+    public Medicao(String mes, String ano, Timestamp data_medicao, String consumo, Medidor medidor_model, TimeRota time_rota_model) {
         this.mes = mes;
         this.ano = ano;
         this.data_medicao = data_medicao;
@@ -16,7 +18,7 @@ public class Medicao extends GenericModel {
         this.medidor_id = medidor_model;
         this.time_rota_id = time_rota_model;
     }
-    public Medicao(int id,String mes, String ano, String data_medicao, String consumo, Medidor medidor_model, TimeRota time_rota_model) {
+    public Medicao(int id,String mes, String ano, Timestamp data_medicao, String consumo, Medidor medidor_model, TimeRota time_rota_model) {
         this.mes = mes;
         this.ano = ano;
         this.data_medicao = data_medicao;
@@ -42,11 +44,11 @@ public class Medicao extends GenericModel {
         this.ano = ano;
     }
 
-    public String getData_medicao() {
+    public Timestamp getData_medicao() {
         return data_medicao;
     }
 
-    public void setData_medicao(String data_medicao) {
+    public void setData_medicao(Timestamp data_medicao) {
         this.data_medicao = data_medicao;
     }
 

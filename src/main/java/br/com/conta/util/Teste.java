@@ -21,7 +21,6 @@ public class Teste {
 //        TimeRota timeRota = new TimeRota(1, 1, 1 );
 //        timeRotaDAO.setInsertTimeRotaSQL(timeRota);
 
-
         System.out.println(timeRotaDAO.selectTimeRota(1));
 
 

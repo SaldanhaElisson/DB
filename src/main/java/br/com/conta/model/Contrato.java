@@ -1,15 +1,17 @@
 package br.com.conta.model;
 
 
+import java.sql.Timestamp;
+
 public class Contrato extends GenericModel {
     private String descricao;
-    private String data_inicio;
-    private String data_criacao;
+    private Timestamp data_inicio;
+    private Timestamp data_criacao;
     private Medidor medidor_id;
     private Classe classe_id;
     private Cliente cliente_id;
 
-    public Contrato(String descricao, String data_inicio, String data_criacao, Medidor medidor_id, Classe classe_id, Cliente cliente_id) {
+    public Contrato(String descricao, Timestamp data_inicio, Timestamp data_criacao, Medidor medidor_id, Classe classe_id, Cliente cliente_id) {
         this.descricao = descricao;
         this.data_inicio = data_inicio;
         this.data_criacao = data_criacao;
@@ -17,7 +19,7 @@ public class Contrato extends GenericModel {
         this.classe_id = classe_id;
         this.cliente_id = cliente_id;
     }
-    public Contrato(int id, String descricao, String data_inicio, String data_criacao, Medidor medidor_id, Classe classe_id, Cliente cliente_id) {
+    public Contrato(int id, String descricao, Timestamp data_inicio, Timestamp data_criacao, Medidor medidor_id, Classe classe_id, Cliente cliente_id) {
         this.descricao = descricao;
         this.data_inicio = data_inicio;
         this.data_criacao = data_criacao;
@@ -35,19 +37,19 @@ public class Contrato extends GenericModel {
         this.descricao = descricao;
     }
 
-    public String getData_inicio() {
+    public Timestamp getData_inicio() {
         return data_inicio;
     }
 
-    public void setData_inicio(String data_inicio) {
+    public void setData_inicio(Timestamp data_inicio) {
         this.data_inicio = data_inicio;
     }
 
-    public String getData_criacao() {
+    public Timestamp getData_criacao() {
         return data_criacao;
     }
 
-    public void setData_criacao(String data_criacao) {
+    public void setData_criacao(Timestamp data_criacao) {
         this.data_criacao = data_criacao;
     }
 

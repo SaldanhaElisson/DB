@@ -8,33 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-//SELECT
-//        rota.descricao AS rota,
-//        medidor.descricao AS medidor,
-//        poste.codigo AS poste,
-//        pessoa.nome AS nome,
-//        pessoa.cpf AS cpf,
-//        pessoa.cnpj AS cnpj,
-//        classe.descricao AS classe,
-//        medicao.consumo AS consumo,
-//        tarifa.taxa AS tarifa,
-//        cobranca.valor AS valor,
-//        tarifa.dataInicio AS data_inicio,
-//        tarifa.dataFinal AS data_final
-//        FROM
-//        rota
-//        JOIN medidor ON medidor.roda_id = rota.id
-//        JOIN poste ON poste.id = medidor.posteId
-//        JOIN medicao ON medicao.medidor_id = medidor.id
-//        JOIN time_rota ON time_rota.id = medicao.time_rota_id
-//        JOIN tarefa_rota ON tarefa_rota.id = time_rota.tarefa_rota_id
-//        JOIN tarifa ON tarifa.classe_id = tarefa_rota.classe_id
-//        JOIN cobranca ON cobranca.medicao_id = medicao.id
-//        JOIN contrato ON contrato.medidor_id = medidor.id
-//        JOIN cliente ON cliente.id = contrato.cliente_id
-//        JOIN pessoa ON pessoa.id = cliente.pessoaId
-//        JOIN classe ON classe.id = contrato.class_id
-//        JOIN tipo_pessoa ON tipo_pessoa.id = pessoa.tipo_pessoa_id
 
 public class DataClientDAO extends ConexaoDB{
 

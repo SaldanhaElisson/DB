@@ -8,6 +8,8 @@ public class Teste {
     static TarefaRotaDAO tarefaRota = new TarefaRotaDAO();
     static TimeRotaDAO timeRotaDAO = new TimeRotaDAO();
 
+    static DataClientDAO dataClientDAO = new DataClientDAO();
+
     static FuncionarioDAO funcionario = new FuncionarioDAO();
     public static void main(String[] args) throws Exception {
 
@@ -21,7 +23,8 @@ public class Teste {
 //        TimeRota timeRota = new TimeRota(1, 1, 1 );
 //        timeRotaDAO.setInsertTimeRotaSQL(timeRota);
 
-        System.out.println(timeRotaDAO.selectTimeRota(1));
+
+        System.out.println(dataClientDAO.selectDataClinet("9174300000"));
 
 
     }

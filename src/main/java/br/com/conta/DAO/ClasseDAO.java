@@ -19,7 +19,7 @@ public class ClasseDAO extends  ConexaoDB{
     public void insertClasse(Classe entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_CLASSE_SQL)) {
             preparedStatement.setString(1, entidade.getDescricao());
-            preparedStatement.setInt(2, entidade.getTipoFaseModel());
+            preparedStatement.setInt(2, entidade.getTipoFaseId());
 
         } catch (SQLException e) {
             printSQLException(e);
@@ -80,7 +80,7 @@ public class ClasseDAO extends  ConexaoDB{
     public boolean updateClasse(Classe entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_CLASSE_SQL)) {
             statement.setString(1, entidade.getDescricao());
-            statement.setInt(2, entidade.getTipoFaseModel());
+            statement.setInt(2, entidade.getTipoFaseId());
             statement.setInt(3, entidade.getId());
 
             return statement.executeUpdate() > 0;

@@ -63,7 +63,7 @@ CREATE TABLE poste(
 CREATE  TABLE  medidor(
     id SERIAL PRIMARY KEY,
     descricao  VARCHAR(45),
-    roda_id INT REFERENCES rota(id),
+    rota_id INT REFERENCES rota(id),
     poste_id INT REFERENCES poste(id)
 );
 

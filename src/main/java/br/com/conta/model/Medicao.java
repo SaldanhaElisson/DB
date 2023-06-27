@@ -5,26 +5,26 @@ import java.sql.Timestamp;
 public class Medicao extends GenericModel {
     private String mes;
     private String ano;
-    private Timestamp data_medicao;
+    private Timestamp dataMedicao;
     private String consumo;
-    private Medidor medidor_id;
-    private TimeRota time_rota_id;
+    private Medidor medidorId;
+    private TimeRota timeRotaId;
 
-    public Medicao(String mes, String ano, Timestamp data_medicao, String consumo, Medidor medidor_model, TimeRota time_rota_model) {
+    public Medicao(String mes, String ano, Timestamp dataMedicao, String consumo, Medidor medidorId, TimeRota timeRotaId) {
         this.mes = mes;
         this.ano = ano;
-        this.data_medicao = data_medicao;
+        this.dataMedicao = dataMedicao;
         this.consumo = consumo;
-        this.medidor_id = medidor_model;
-        this.time_rota_id = time_rota_model;
+        this.medidorId = medidorId;
+        this.timeRotaId = timeRotaId;
     }
-    public Medicao(int id,String mes, String ano, Timestamp data_medicao, String consumo, Medidor medidor_model, TimeRota time_rota_model) {
+    public Medicao(int id, String mes, String ano, Timestamp dataMedicao, String consumo, Medidor medidorId, TimeRota timeRotaId) {
         this.mes = mes;
         this.ano = ano;
-        this.data_medicao = data_medicao;
+        this.dataMedicao = dataMedicao;
         this.consumo = consumo;
-        this.medidor_id = medidor_model;
-        this.time_rota_id = time_rota_model;
+        this.medidorId = medidorId;
+        this.timeRotaId = timeRotaId;
         super.setId(id);
     }
 
@@ -44,12 +44,12 @@ public class Medicao extends GenericModel {
         this.ano = ano;
     }
 
-    public Timestamp getData_medicao() {
-        return data_medicao;
+    public Timestamp getDataMedicao() {
+        return dataMedicao;
     }
 
-    public void setData_medicao(Timestamp data_medicao) {
-        this.data_medicao = data_medicao;
+    public void setDataMedicao(Timestamp dataMedicao) {
+        this.dataMedicao = dataMedicao;
     }
 
     public String getConsumo() {
@@ -61,19 +61,19 @@ public class Medicao extends GenericModel {
     }
 
     public int getMedidorId() {
-        return medidor_id.getId();
+        return medidorId.getId();
     }
 
     public void setMedidorId(Medidor medidor_id) {
-        this.medidor_id = medidor_id;
+        this.medidorId = medidor_id;
     }
 
     public int getTimeRotaId() {
-        return time_rota_id.getId();
+        return timeRotaId.getId();
     }
 
     public void setTimeRotaId(TimeRota time_rota_id) {
-        this.time_rota_id = time_rota_id;
+        this.timeRotaId = time_rota_id;
     }
 
     @Override
@@ -82,10 +82,10 @@ public class Medicao extends GenericModel {
                 "id='" + this.getId() + "\'" +
                 "ano='" + getAno() + "\'" +
                 "mes='" + getMes() + "\'" +
-                "data_medicao='" + getData_medicao() + "\'" +
+                "dataMedicao='" + getDataMedicao() + "\'" +
                 "consumo='" + getConsumo() + "\'" +
                 "medidor_id='" + getMedidorId() + "\'" +
-                "time_rota_id='" + getTimeRotaId() + "\'" +
+                "timeRota_id='" + getTimeRotaId() + "\'" +
                 '}';
     }
 }

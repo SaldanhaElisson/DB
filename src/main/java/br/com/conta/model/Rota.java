@@ -6,6 +6,10 @@ public class Rota extends GenericModel{
     private String descricao;
 
 
+    public Rota(String descricao) {
+        this.descricao = descricao;
+    }
+
     public Rota(Integer id, String descricao) {
         super.setId(id);
         this.descricao = descricao;
@@ -18,9 +22,9 @@ public class Rota extends GenericModel{
 
     @Override
     public String toString() {
-        return "rota { \n" +
+        return "Rota { \n" +
                 "\t id= '" + this.getId() + "\' \n"  +
-                "\t descricao ='" + descricao + "\' \n" +
+                "\t descricao ='" + getDescricao() + "\' \n" +
                 "\t } \n";
     }
 

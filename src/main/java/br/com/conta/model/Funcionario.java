@@ -2,35 +2,44 @@ package br.com.conta.model;
 
 import br.com.conta.DAO.PessoaDAO;
 
-public class Funcionario extends GenericModel{
+public class Funcionario extends GenericModel {
+    private String codigoFuncionario;
+    private Pessoa pessoaId;
 
- static  private PessoaDAO pessoaDao = new PessoaDAO();
-   private String codigoFuncional;
+    private static final PessoaDAO pessoaDAO = new PessoaDAO();
 
-   private Integer pessoaId;
-
-    public Funcionario(Integer id, String codigoFuncional, Integer pessoaId) {
-
-        this.codigoFuncional = codigoFuncional;
+    public Funcionario(String codigoFuncionario, Pessoa pessoaId) {
+        this.codigoFuncionario = codigoFuncionario;
+        this.pessoaId = pessoaId;
+    }
+    public Funcionario(int id, String codigoFuncionario, Pessoa pessoaId) {
+        this.codigoFuncionario = codigoFuncionario;
         this.pessoaId = pessoaId;
         super.setId(id);
     }
 
+    public String getCodigoFuncionario() {
+        return codigoFuncionario;
+    }
+
+    public void setCodigoFuncionario(String codigoFuncionario) {
+        this.codigoFuncionario = codigoFuncionario;
+    }
+
+    public int getPessoaId() {
+        return pessoaId.getId();
+    }
+
+    public void setPessoal_id(Pessoa pessoaId) {
+        this.pessoaId = pessoaId;
+    }
 
     @Override
     public String toString() {
-        return "funcionario { \n" +
-                "\t id= '" + this.getId() + "\' \n"  +
-                "\t codigo_funcional='" + codigoFuncional + "\' \n" +
-                "\t pessoa = " + pessoaDao.selectPessoaById(pessoaId) + " \n" +
-                "\t } \n";
-    }
-
-    public String getCodigoFuncional() {
-        return codigoFuncional;
-    }
-
-    public Integer getPessoaId() {
-        return pessoaId;
+        return "Funcionario {" +
+                "id='" + this.getId() + "\'" +
+                "codigoFuncionario='" + getCodigoFuncionario() + "\'" +
+                "pessoa_id='" + getPessoaId() + "\'" +
+                '}';
     }
 }

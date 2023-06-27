@@ -3,15 +3,15 @@ package br.com.conta.model;
 
 public class Classe extends GenericModel{
     private String descricao;
-    private TipoFase tipo_fase_model;
+    private TipoFase tipoFaseId;
 
-    public Classe(String descricao, TipoFase tipo_fase_model) {
+    public Classe(String descricao, TipoFase tipoFaseId) {
         this.descricao = descricao;
-        this.tipo_fase_model = tipo_fase_model;
+        this.tipoFaseId = tipoFaseId;
     }
-    public Classe(Integer id, String descricao, TipoFase tipo_fase_model){
+    public Classe(Integer id, String descricao, TipoFase tipoFaseId){
         this.descricao = descricao;
-        this.tipo_fase_model = tipo_fase_model;
+        this.tipoFaseId = tipoFaseId;
         super.setId(id);
     }
 
@@ -23,12 +23,12 @@ public class Classe extends GenericModel{
         this.descricao = descricao;
     }
 
-    public int getTipoFaseModel() {
-        return tipo_fase_model.getId();
+    public int getTipoFaseId() {
+        return tipoFaseId.getId();
     }
 
-    public void setTipoFaseModel(TipoFase tipo_fase_model) {
-        this.tipo_fase_model = tipo_fase_model;
+    public void setTipoFaseId(TipoFase tipoFaseId) {
+        this.tipoFaseId = tipoFaseId;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class Classe extends GenericModel{
         return "Classe {" +
                 "id='" + this.getId() + "\'" +
                 "descricao='" + getDescricao() + "\'" +
-                "tipo_fase='" + getTipoFaseModel() + "\'" +
+                "tipo_fase_id='" + getTipoFaseId() + "\'" +
                 '}';
     }
 }

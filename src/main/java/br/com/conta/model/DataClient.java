@@ -48,7 +48,7 @@ public class DataClient extends GenericModel {
                 " \tcnpj='" + cnpj + "' \n" +
                 " \tclasse='" + classe + "'\n" +
                 " \ttipoFase='" + tipoFase + "'\n" +
-                "\t cpf= " + cpf + "\n" +
+                " \tcpf= " + cpf + "\n" +
                 '}';
     }
 

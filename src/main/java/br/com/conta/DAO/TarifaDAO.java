@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 public class TarifaDAO extends  ConexaoDB{
-    private static final String INSERT_TARIFA_SQL = "INSERT INTO tarifa (id, taxa, classe_id, lei, data_inicio, data_final, aliquota_icms) VALUES (?, ?, ?, ?, ?, ?, ?) ;";
+    private static final String INSERT_TARIFA_SQL = "INSERT INTO tarifa (taxa, classe_id, lei, data_inicio, data_final, aliquota_icms) VALUES (?, ?, ?, ?, ?, ?) ;";
     private static final String SELECT_TARIFA_BY_ID = "SELECT id, taxa, classe_id, lei, data_inicio, data_final, aliquota_icms FROM tarifa WHERE id = ?";
     private static final String SELECT_ALL_TARIFA= "SELECT * FROM tarifa;";
     private static final String DELETE_TARIFA_SQL = "DELETE FROM tarifa WHERE id = ?;";
@@ -19,12 +19,12 @@ public class TarifaDAO extends  ConexaoDB{
     public void insertTarifa(Tarifa entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_TARIFA_SQL)) {
             preparedStatement.setString(1, entidade.getTaxa());
-            preparedStatement.setInt(2, entidade.getClasseModel());
+            preparedStatement.setInt(2, entidade.getClasseId());
             preparedStatement.setString(3, entidade.getLei());
-            preparedStatement.setString(4, entidade.getData_inicio());
-            preparedStatement.setString(5, entidade.getData_fim());
-            preparedStatement.setString(6, entidade.getAliquota_ICMS());
-
+            preparedStatement.setString(4, entidade.getDataInicio());
+            preparedStatement.setString(5, entidade.getDataFim());
+            preparedStatement.setString(6, entidade.getAliquotaICMS());
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
         } catch (ClassNotFoundException e) {
@@ -92,11 +92,11 @@ public class TarifaDAO extends  ConexaoDB{
     public boolean updateTarifa(Tarifa entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_TARIFA_SQL)) {
             statement.setString(1, entidade.getTaxa());
-            statement.setInt(2, entidade.getClasseModel());
+            statement.setInt(2, entidade.getClasseId());
             statement.setString(3, entidade.getLei());
-            statement.setString(4, entidade.getData_inicio());
-            statement.setString(5, entidade.getData_fim());
-            statement.setString(6, entidade.getAliquota_ICMS());
+            statement.setString(4, entidade.getDataInicio());
+            statement.setString(5, entidade.getDataFim());
+            statement.setString(6, entidade.getAliquotaICMS());
             statement.setInt(7, entidade.getId());
 
             return statement.executeUpdate() > 0;

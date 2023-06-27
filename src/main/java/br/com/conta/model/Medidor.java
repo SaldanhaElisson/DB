@@ -2,18 +2,18 @@ package br.com.conta.model;
 
 public class Medidor extends GenericModel {
     private String descricao;
-    private Rota rota_id;
-    private Poste poste_id;
+    private Rota rotaId;
+    private Poste posteId;
 
-    public Medidor(String descricao, Rota rota_id, Poste poste_id) {
+    public Medidor(String descricao, Rota rotaId, Poste posteId) {
         this.descricao = descricao;
-        this.rota_id = rota_id;
-        this.poste_id = poste_id;
+        this.rotaId = rotaId;
+        this.posteId = posteId;
     }
-    public Medidor(int id,String descricao, Rota rota_id,Poste poste_id) {
+    public Medidor(int id, String descricao, Rota rotaId, Poste posteId) {
         this.descricao = descricao;
-        this.rota_id = rota_id;
-        this.poste_id = poste_id;
+        this.rotaId = rotaId;
+        this.posteId = posteId;
         super.setId(id);
     }
 
@@ -26,27 +26,27 @@ public class Medidor extends GenericModel {
     }
 
     public int getRotaId() {
-        return rota_id.getId();
+        return rotaId.getId();
     }
 
-    public void setRota_id(Rota rota_id) {
-        this.rota_id = rota_id;
+    public void setRotaId(Rota rotaId) {
+        this.rotaId = rotaId;
     }
 
     public int getPosteId() {
-        return poste_id.getId();
+        return posteId.getId();
     }
 
     public void setPosteId(Poste poste_id) {
-        this.poste_id = poste_id;
+        this.posteId = poste_id;
     }
     @Override
     public String toString() {
         return "Medidor {" +
                 "id='" + this.getId() + "\'" +
                 "descricao='" + getDescricao() + "\'" +
-                "rota='" + getRotaId() + "\'" +
-                "poste='" + getPosteId() + "\'" +
+                "rota_id='" + getRotaId() + "\'" +
+                "poste_id='" + getPosteId() + "\'" +
                 '}';
     }
 }

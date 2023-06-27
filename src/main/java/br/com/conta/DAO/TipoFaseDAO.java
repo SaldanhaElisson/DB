@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 public class TipoFaseDAO extends  ConexaoDB{
-    private static final String INSERT_TIPO_FASE_SQL = "INSERT INTO tipo_fase (id, descricao) VALUES (?, ?) ;";
+    private static final String INSERT_TIPO_FASE_SQL = "INSERT INTO tipo_fase (descricao) VALUES (?) ;";
     private static final String SELECT_TIPO_FASE_BY_ID = "SELECT id, descricao FROM tipo_fase WHERE id = ?";
     private static final String SELECT_ALL_TIPO_FASE = "SELECT * FROM tipo_fase;";
     private static final String DELETE_TIPO_FASE_SQL = "DELETE FROM tipo_fase WHERE id = ?;";
@@ -17,6 +17,7 @@ public class TipoFaseDAO extends  ConexaoDB{
     public void insertTipoFase(TipoFase entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_TIPO_FASE_SQL)) {
             preparedStatement.setString(1, entidade.getDescricao());
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             printSQLException(e);
@@ -70,7 +71,7 @@ public class TipoFaseDAO extends  ConexaoDB{
         }
     }
 
-    public boolean updatePessoa(TipoFase entidade) throws SQLException {
+    public boolean updateTipoFase(TipoFase entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_TIPO_FASE_SQL)) {
             statement.setString(1, entidade.getDescricao());
             statement.setInt(2, entidade.getId());

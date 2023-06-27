@@ -1,30 +1,25 @@
 package br.com.conta.model;
 
-import br.com.conta.DAO.TipoPessoaDAO;
 
 public class Pessoa extends GenericModel {
-    static private TipoPessoaDAO tipoPessoaDAO = new TipoPessoaDAO();
+
     private String nome;
     private String cpf;
+
     private String cnpj;
-    private TipoPessoa tipoPessoa;
-    public Pessoa(Integer id, String nome, String cpf, TipoPessoa tipoPessoa) throws IllegalArgumentException{
+
+    private TipoPessoa tipoPessoaId;
+
+
+    public Pessoa(Integer id, String nome, String cpf, TipoPessoa tipoPessoaId) {
         this.nome = nome;
-
-
-        String regex = "\\d{11}";
-        boolean valido = cpf.matches(regex);
-
-        if (!valido){
-            throw new IllegalArgumentException("CPf INVALIDO");
-        }
-
         this.cpf = cpf;
-        this.tipoPessoa = tipoPessoa;
+        this.tipoPessoaId = tipoPessoaId;
         super.setId(id);
     }
-    public Pessoa(Integer id, String nome, String cpf, TipoPessoa tipoPessoa, String cnpj ) throws Exception {
-        this(id, nome, cpf, tipoPessoa);
+
+    public Pessoa(Integer id, String nome, String cpf, TipoPessoa tipoPessoaId, String cnpj ) throws Exception {
+        this(id, nome, cpf, tipoPessoaId);
 
         this.cnpj = cnpj;
 
@@ -42,17 +37,22 @@ public class Pessoa extends GenericModel {
         return cnpj;
     }
 
-    public Integer getIdTipoPessoa() {
-        return tipoPessoa.getId();
+    public void setTipoPessoaId(TipoPessoa tipoPessoaId) {
+        this.tipoPessoaId = tipoPessoaId;
+    }
+
+    public Integer getTipoPessoaId() {
+        return tipoPessoaId.getId();
     }
 
     @Override
     public String toString() {
-        return "pessoa { \n" +
-                    "\t id= '" + this.getId() + "\' \n" +
-                    "\t nome = '" + getNome() + "\' \n" +
-                    "\t cpf = '" + getCpf() + "\' \n"  +
-                    "\t tipo_pessoa =  " + tipoPessoa + "\n" +
+        return "Pessoa { \n" +
+                "\t id= '" + this.getId() + "\' \n" +
+                "\t nome = '" + getNome() + "\' \n" +
+                "\t cpf = '" + getCpf() + "\' \n"  +
+                "\t cnpj = '" + getCnpj() + "\' \n"  +
+                "\t tipo_pessoa_id =  " + getTipoPessoaId() + "\n" +
                 "\t }";
     }
 }

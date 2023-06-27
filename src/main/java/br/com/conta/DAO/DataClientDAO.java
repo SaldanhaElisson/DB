@@ -22,7 +22,7 @@ public class DataClientDAO extends ConexaoDB{
     "INNER JOIN classe ON classe.id_tipo_fase = tipo_fase.id " +
     "INNER JOIN contrato ON contrato.class_id = classe.id " +
     "INNER JOIN medidor ON medidor.id = contrato.medidor_id " +
-    "INNER JOIN rota ON rota.id = medidor.roda_id " +
+    "INNER JOIN rota ON rota.id = medidor.rota_id " +
     "INNER JOIN poste ON poste.id = medidor.poste_id " +
     "INNER JOIN cliente ON cliente.id = contrato.cliente_id " +
     "INNER JOIN pessoa ON pessoa.id = cliente.pessoa_id " +

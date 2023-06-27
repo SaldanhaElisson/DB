@@ -1,4 +1,5 @@
 package br.com.conta.DAO;
+
 import br.com.conta.model.Rota;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,7 +44,7 @@ public class RotaDAO extends ConexaoDB {
     }
 
     public Rota selectRota(int id) {
-       Rota entidade = null;
+        Rota entidade = null;
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_TIPO_ROTA_BY_ID)) {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();

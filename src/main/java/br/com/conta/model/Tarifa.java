@@ -2,31 +2,33 @@ package br.com.conta.model;
 
 public class Tarifa extends GenericModel{
     private String taxa;
-    private Classe classeModel;
-    private String data_inicio;
+    private Classe classeId;
+    private String dataInicio;
 
-    private String data_fim;
+    private String dataFim;
 
-    private String aliquota_ICMS;
+    private String aliquotaICMS;
 
     private String lei;
 
-    public Tarifa(String taxa, Classe classeModel, String lei, String data_inicio, String data_fim, String aliquota_ICMS) {
+
+
+    public Tarifa(String taxa, Classe classeId, String lei, String dataInicio, String dataFim, String aliquotaICMS) {
         this.taxa = taxa;
-        this.classeModel = classeModel;
+        this.classeId = classeId;
         this.lei = lei;
-        this.data_inicio = data_inicio;
-        this.data_fim = data_fim;
-        this.aliquota_ICMS = aliquota_ICMS;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.aliquotaICMS = aliquotaICMS;
     }
 
-    public Tarifa(int id,String taxa, Classe classeModel, String lei, String data_inicio, String data_fim, String aliquota_ICMS) {
+    public Tarifa(int id, String taxa, Classe classeId, String lei, String dataInicio, String dataFim, String aliquotaICMS) {
         this.taxa = taxa;
-        this.classeModel = classeModel;
+        this.classeId = classeId;
         this.lei = lei;
-        this.data_inicio = data_inicio;
-        this.data_fim = data_fim;
-        this.aliquota_ICMS = aliquota_ICMS;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.aliquotaICMS = aliquotaICMS;
         super.setId(id);
     }
 
@@ -38,36 +40,36 @@ public class Tarifa extends GenericModel{
         this.taxa = taxa;
     }
 
-    public int getClasseModel() {
-        return classeModel.getId();
+    public int getClasseId() {
+        return classeId.getId();
     }
 
-    public void setClasseModel(Classe classeModel) {
-        this.classeModel = classeModel;
+    public void setClasseId(Classe classeId) {
+        this.classeId = classeId;
     }
 
-    public String getData_inicio() {
-        return data_inicio;
+    public String getDataInicio() {
+        return dataInicio;
     }
 
-    public void setData_inicio(String data_inicio) {
-        this.data_inicio = data_inicio;
+    public void setDataInicio(String dataInicio) {
+        this.dataInicio = dataInicio;
     }
 
-    public String getData_fim() {
-        return data_fim;
+    public String getDataFim() {
+        return dataFim;
     }
 
-    public void setData_fim(String data_fim) {
-        this.data_fim = data_fim;
+    public void setDataFim(String dataFim) {
+        this.dataFim = dataFim;
     }
 
-    public String getAliquota_ICMS() {
-        return aliquota_ICMS;
+    public String getAliquotaICMS() {
+        return aliquotaICMS;
     }
 
-    public void setAliquota_ICMS(String aliquota_ICMS) {
-        this.aliquota_ICMS = aliquota_ICMS;
+    public void setAliquotaICMS(String aliquotaICMS) {
+        this.aliquotaICMS = aliquotaICMS;
     }
 
     public String getLei() {
@@ -84,10 +86,10 @@ public class Tarifa extends GenericModel{
                 "id='" + this.getId() + "\'" +
                 "taxa='" + getTaxa() + "\'" +
                 "lei='" + getLei() + "\'" +
-                "data_inicio='" + getData_inicio() + "\'" +
-                "data_fim='" + getData_fim() + "\'" +
-                "aliquota_ICMS='" + getAliquota_ICMS() + "\'" +
-                "classe_id='" + getClasseModel() + "\'" +
+                "dataInicio='" + getDataInicio() + "\'" +
+                "dataFim='" + getDataFim() + "\'" +
+                "aliquotaICMS='" + getAliquotaICMS() + "\'" +
+                "classe_id='" + getClasseId() + "\'" +
                 '}';
     }
 }

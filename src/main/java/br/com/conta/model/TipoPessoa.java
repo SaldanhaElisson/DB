@@ -3,6 +3,9 @@ package br.com.conta.model;
 public class TipoPessoa extends GenericModel {
     private String descricao;
 
+    public TipoPessoa(String descricao) {
+        this.descricao = descricao;
+    }
 
     public TipoPessoa(Integer id, String descricao) {
 
@@ -18,9 +21,9 @@ public class TipoPessoa extends GenericModel {
 
     @Override
     public String toString() {
-        return "tipo_pessoa { \n" +
+        return "Tipo_pessoa { \n" +
                 "\t id='" + this.getId() + "\' \n"  +
-                "\t descricao='" + descricao + "\n" +
+                "\t descricao='" + getDescricao() + "\n" +
                 "\t } ";
     }
 }

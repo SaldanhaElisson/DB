@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 public class MedidorDAO extends  ConexaoDB{
-    private static final String INSERT_MEDIDOR_SQL = "INSERT INTO medidor (id, descricao, rota_id, poste_id) VALUES (?, ?, ?, ?) ;";
+    private static final String INSERT_MEDIDOR_SQL = "INSERT INTO medidor (descricao, rota_id, poste_id) VALUES (?, ?, ?) ;";
     private static final String SELECT_MEDIDOR_BY_ID = "SELECT id, descricao, rota_id, poste_id FROM medidor WHERE id = ?";
     private static final String SELECT_ALL_MEDIDOR = "SELECT * FROM medidor;";
     private static final String DELETE_MEDIDOR_SQL = "DELETE FROM medidor WHERE id = ?;";
@@ -41,6 +41,7 @@ public class MedidorDAO extends  ConexaoDB{
             preparedStatement.setString(1, entidade.getDescricao());
             preparedStatement.setInt(2, entidade.getRotaId());
             preparedStatement.setInt(3, entidade.getPosteId());
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             printSQLException(e);
@@ -48,7 +49,7 @@ public class MedidorDAO extends  ConexaoDB{
             throw new RuntimeException(e);
         }
     }
-        public Medidor selectMedidorById(int id) {
+    public Medidor selectMedidorById(int id) {
         Medidor entidade = null;
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_MEDIDOR_BY_ID)) {
             preparedStatement.setInt(1, id);

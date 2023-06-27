@@ -1,7 +1,7 @@
 package br.com.conta.DAO;
 
 import br.com.conta.model.Cliente;
-import br.com.conta.model.Pessoa;
+import br.com.conta.model.DataClient;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +16,8 @@ public class DataClientDAO extends ConexaoDB{
     "pessoa.nome AS nome," +
     "pessoa.cpf AS cpf, " +
     "pessoa.cnpj AS cnpj, " +
-    "classe.descricao AS classe " +
+    "classe.descricao AS classe, " +
+    "tipo_fase.descricao AS tipo_fase "+
     "FROM tipo_fase " +
     "INNER JOIN classe ON classe.id_tipo_fase = tipo_fase.id " +
     "INNER JOIN contrato ON contrato.class_id = classe.id " +
@@ -29,20 +30,22 @@ public class DataClientDAO extends ConexaoDB{
 
 
 
-    public String  selectDataClinet( String cpf) {
-        Cliente entidade = null;
-        String nomeResponse = null;
+    public DataClient  selectDataClient( String cpfQuery) {
+        DataClient entidade = null;
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_DATA_CLIENT_BY_ID)) {
-            preparedStatement.setString(1, cpf);
+            preparedStatement.setString(1, cpfQuery);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
+                String cnpj = rs.getString("cnpj");
                 String poste = rs.getString("poste");
                 String nome = rs.getString("nome");
-                String cpfResponse = rs.getString("cpf");
+                String classe = rs.getString("classe");
+                String cpf = rs.getString("cpf");
+                String tipoFase = rs.getString("tipo_fase");
 
 
-                nomeResponse = poste + " "+  nome + " " + cpfResponse;
+                entidade =  new DataClient(10, cpf, poste, nome, cnpj, classe, tipoFase);
 
             }
         } catch (SQLException e) {
@@ -50,6 +53,6 @@ public class DataClientDAO extends ConexaoDB{
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        return nomeResponse;
+        return entidade;
     }
 }

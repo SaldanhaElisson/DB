@@ -1,5 +1,7 @@
 package br.com.conta.util;
 import br.com.conta.DAO.*;
+import br.com.conta.model.DataClient;
+import br.com.conta.servico.ServiceClient;
 
 public class Teste {
     static TipoPessoaDAO tipo_pessoaDAO = new TipoPessoaDAO();
@@ -24,8 +26,11 @@ public class Teste {
 //        timeRotaDAO.setInsertTimeRotaSQL(timeRota);
 
 
-        System.out.println(dataClientDAO.selectDataClinet("9174300000"));
+        ServiceClient serviceClient = new ServiceClient(dataClientDAO);
 
+        DataClient response = serviceClient.ConsultClientDatabyCPF("batata");
+
+        System.out.println(response);
 
     }
 }

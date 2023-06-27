@@ -8,8 +8,17 @@ public class Pessoa extends GenericModel {
     private String cpf;
     private String cnpj;
     private TipoPessoa tipoPessoa;
-    public Pessoa(Integer id, String nome, String cpf, TipoPessoa tipoPessoa) {
+    public Pessoa(Integer id, String nome, String cpf, TipoPessoa tipoPessoa) throws IllegalArgumentException{
         this.nome = nome;
+
+
+        String regex = "\\d{11}";
+        boolean valido = cpf.matches(regex);
+
+        if (!valido){
+            throw new IllegalArgumentException("CPf INVALIDO");
+        }
+
         this.cpf = cpf;
         this.tipoPessoa = tipoPessoa;
         super.setId(id);

@@ -43,12 +43,12 @@ public class DataClient extends GenericModel {
     @Override
     public String toString() {
         return "DataClien{ \n" +
-                "  \tposte='" + poste + "'\n" +
-                " \tnome='" + nome + "'\n" +
-                " \tcnpj='" + cnpj + "' \n" +
-                " \tclasse='" + classe + "'\n" +
-                " \ttipoFase='" + tipoFase + "'\n" +
-                " \tcpf= " + cpf + "\n" +
+                " \tposte=" + poste + "\n" +
+                " \tnome=" + nome + "\n" +
+                " \tcnpj=" + cnpj + "\n" +
+                " \tclasse=" + classe + "\n" +
+                " \ttipoFase=" + tipoFase + "\n" +
+                " \tcpf=" + cpf + "\n" +
                 '}';
     }
 

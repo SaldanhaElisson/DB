@@ -79,13 +79,13 @@ public class Contrato extends GenericModel {
     @Override
     public String toString() {
         return "Contrato {" +
-                "id='" + this.getId() + "\'" +
-                "descricao='" + getDescricao() + "\'" +
-                "data_inicio='" + getDataInicio() + "\'" +
-                "data_criacao='" + getDataCriacao() + "\'" +
-                "medidor_id='" + getMedidorId() + "\'" +
-                "classe_id='" + getClasseId() + "\'" +
-                "cliente_id='" + getClienteId() + "\'" +
+                "\tid=" + this.getId() + "\n" +
+                "\tdescricao=" + getDescricao() + "\n" +
+                "\tdata_inicio=" + getDataInicio() + "\n" +
+                "\tdata_criacao=" + getDataCriacao() + "\n" +
+                "\tmedidor_id=" + getMedidorId() + "\n" +
+                "\tclasse_id=" + getClasseId() + "\n" +
+                "\tcliente_id=" + getClienteId() + "\n" +
                 '}';
     }
 }

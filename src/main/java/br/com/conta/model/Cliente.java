@@ -48,11 +48,11 @@ public class Cliente extends GenericModel{
 
     @Override
     public String toString() {
-        return "Cliente {" +
-                "id='" + this.getId() + "\'" +
-                "num_documento='" + getNumDocumento() + "\'" +
-                "num_cliente='" + getNumCliente() + "\'" +
-                "pessoa_id='" + getPessoaId() + "\'" +
-                '}';
+        return "Cliente { \n" +
+                "\tid=" + this.getId() + "\n" +
+                "\tnum_documento=" + getNumDocumento() + "\n" +
+                "\tnum_cliente=" + getNumCliente() + "\n" +
+                "\tpessoa_id=" + getPessoaId() + "\n" +
+                "} \n";
     }
 }
